@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.contrib.flatpages.models import FlatPage
+# from django.contrib.flatpages.models import FlatPage
 from django.http import Http404
 from .breadcrumbs import Breadcrumbs, BreadcrumbsNotSet
 from django.conf import settings
@@ -96,7 +96,7 @@ def breadcrumbs_for_flatpages(request, flatpage):
         else:
             try:
                 f = FlatPage.objects.get(url=url, sites=settings.SITE_ID)
-            except FlatPage.DoesNotExist:
+            except:
                 # TODO: this part can be a view, maybe is a good idea get that
                 # view and check for viewfunc.breadcrumb_title or
                 # viewclass.breadcrumb_title attributes.
